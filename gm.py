@@ -13,7 +13,7 @@ names_to_install = [x for x in packages if not rpackages.isinstalled(x)] # filte
 if len(names_to_install) > 0:
     utils.install_packages(StrVector(names_to_install))
 
-# Ymport GerminationMetrics package
+# Import GerminationMetrics package
 gm = rpackages.importr('germinationmetrics')
 
 help(gm)
