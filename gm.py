@@ -1,6 +1,6 @@
 # Import rpy2 packages
-from rpy2.robjects.packages import rpackages
-from rpy2.robjects.vectors import Strvector
+import rpy2.robjects.packages as rpackages
+from rpy2.robjects.vectors import StrVector
 
 utils = rpackages.importr('utils')
 utils.chooseCRANmirror(ind=1) # Choose Mirror for installing the R packages
