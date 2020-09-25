@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  IMAGE_NAME: lazarodm/rpy2-jupyter
+  IMAGE_NAME: rpy2-jupyter
   DOCKER_HUB_USER: lazarodm
 
 jobs:
@@ -35,11 +35,11 @@ jobs:
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
-      - name: Log into GitHub Container Registry
-        run: echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login ${{ env.DOCKER_HUB_USER }} --password-stdin
+      - name: Log into Dockerhub
+        run: echo "${{ secrets.DOCKER_HUB_KEY }}" | docker login --username $DOCKER_HUB_USER --password-stdin
 
       - name: Push image to Dockerhub
         run: |
-          docker tag $IMAGE_NAME $IMAGE_NAME:latest
+          docker tag $IMAGE_NAME $DOCKER_HUB_USER/$IMAGE_NAME:latest
 
-          docker push $IMAGE_NAME:latest
+          docker push $DOCKER_HUB_USER/$IMAGE_NAME:latest
