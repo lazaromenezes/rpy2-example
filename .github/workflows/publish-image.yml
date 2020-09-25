@@ -2,6 +2,9 @@ name: Docker
 
 on:
   push:
+    paths:
+      - Dockerfile 
+      - .github/workflows/publish-image.yml
     branches:
       - master
 
