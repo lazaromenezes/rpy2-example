@@ -11,7 +11,7 @@ on:
 
 env:
   IMAGE_NAME: lazarodm/rpy2-jupyter
-	DOCKER_HUB_USER: lazarodm
+  DOCKER_HUB_USER: lazarodm
 
 jobs:
   # Run tests.
